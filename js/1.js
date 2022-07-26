@@ -202,6 +202,10 @@ const ballRef = document.querySelector('.ball');
 footballFieldRef.addEventListener('click', onFootballFieldRefClick);
 
 function onFootballFieldRefClick(evt) {
-  console.log(evt);
-  ballRef.
+  // console.log(evt.clientX, evt.clientY);
+  const { left, top } = evt.target.getBoundingClientRect();
+  ballRef.style.top = evt.clientY - ballRef.clientWidth / 2 - top + 'px';
+  ballRef.style.left = evt.clientX - ballRef.clientWidth / 2 - left + 'px';
+  // console.dir(ballRef);
+  console.log(evt.target.getBoundingClientRect());
 }
