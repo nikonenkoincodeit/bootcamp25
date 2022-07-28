@@ -1,0 +1,1 @@
+import { slides } from './data';
