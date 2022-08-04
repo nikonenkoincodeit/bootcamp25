@@ -1,34 +1,67 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 
-import data from "./data.json";
+import { sendData, getData, removeData } from "./service";
+import { FORM_DATA } from "./const";
 
-// import { hi, name, bye } from "./say";
+const formRef = document.querySelector(".form");
+const alertRef = document.querySelector(".alert");
 
-// hi("Poly");
-// bye("Poly");
+const toggleAlert = (textError) => {
+  alertRef.textContent = textError;
+  alertRef.classList.remove("is-hidden");
+  setTimeout(() => {
+    alertRef.classList.add("is-hidden");
+  }, 3000);
+};
 
-const rowRef = document.querySelector(".row");
+const getDataForm = (e) => {
+  try {
+    const { value, name } = e.target;
+    let data = JSON.parse(getData(FORM_DATA));
+    data = data ? data : {};
+    data[name] = value;
+    sendData(FORM_DATA, data);
+  } catch (error) {
+    toggleAlert(error.message);
+  }
+};
 
-const images = data.map(
-  ({ img }) => `  <div class="col">
-<div class="card">
-  <img
-    src="${require(img)}"
-    class="card-img-top"
-    alt="..."
-  />
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">
-      Some quick example text to build on the card title and make up
-      the bulk of the card's content.
-    </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>`
-);
+const addDataForm = () => {
+  try {
+    let data = JSON.parse(getData(FORM_DATA));
+    if (!data) return;
+    Object.entries(data).forEach(([key, value]) => {
+      formRef.elements[key].value = value;
+    });
+  } catch (error) {
+    toggleAlert(error.message);
+  }
+};
+addDataForm();
 
-rowRef.insertAdjacentHTML("beforeend", images.join(""));
-console.log("data :>> ", images);
+const clearData = () => {
+  try {
+    removeData(FORM_DATA);
+  } catch (error) {
+    toggleAlert(error.message);
+  }
+};
+
+const resetForm = (form) => form.reset();
+
+const submitForm = (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const obj = {};
+  formData.forEach((value, key) => {
+    obj[key] = value;
+  });
+  console.log("obj :>> ", obj);
+  resetForm(formRef);
+  clearData();
+};
+
+formRef.addEventListener("submit", submitForm);
+formRef.addEventListener("reset", clearData);
+formRef.addEventListener("change", getDataForm);
