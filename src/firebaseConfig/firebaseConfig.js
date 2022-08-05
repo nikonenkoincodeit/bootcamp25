@@ -10,11 +10,12 @@
 // };
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyBT-aAgDYYnO0cyHfzDWladzZSGw_HA3x4",
-  authDomain: "testdb-8e0ba.firebaseapp.com",
-  databaseURL: "https://testdb-8e0ba-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "testdb-8e0ba",
-  storageBucket: "testdb-8e0ba.appspot.com",
-  messagingSenderId: "720900845273",
-  appId: "1:720900845273:web:a8927c627e7879e27b18c8"
+  apiKey: "AIzaSyBoi9JeFe9GEgj3RfHzT1Aa_AC2lwnwbCQ",
+  authDomain: "to-do-list-11405.firebaseapp.com",
+  databaseURL:
+    "https://to-do-list-11405-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "to-do-list-11405",
+  storageBucket: "to-do-list-11405.appspot.com",
+  messagingSenderId: "1073363233711",
+  appId: "1:1073363233711:web:c69a90885a525f01c01d5a",
 };
