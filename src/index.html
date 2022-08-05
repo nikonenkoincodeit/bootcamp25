@@ -1,80 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <form
-          class="row justify-content-center gap-3 border border-1 rounded shadow py-5 bg-white js-form-select form"
-        >
-          <div class="col-3">
-            <label class="col-sm-2 col-form-label w-100">
-              <p class="fw-bolder">Колір</p>
-              <select
-                class="form-select form-select-lg mb-3"
-                aria-label=".form-select-lg"
-                name="color"
-                required
-              >
-                <option selected disabled value="">Виберіть колір</option>
-                <option value="red">Червоний</option>
-                <option value="green">Зелений</option>
-                <option value="blue">Синій</option>
-              </select>
-            </label>
-          </div>
-
-          <div class="col-3">
-            <label class="col-sm-2 col-form-label w-100">
-              <p class="fw-bolder">Розмір</p>
-              <select
-                class="form-select form-select-lg mb-3"
-                aria-label=".form-select-lg"
-                name="size"
-                required
-              >
-                <option selected disabled value="">Виберіть розмір</option>
-                <option value="sm">Маленький</option>
-                <option value="md">Середній</option>
-                <option value="xl">Великий</option>
-              </select>
-            </label>
-          </div>
-
-          <div class="col-3">
-            <label class="col-sm-2 col-form-label w-100">
-              <p class="fw-bolder">Матеріал</p>
-              <select
-                class="form-select form-select-lg mb-3"
-                aria-label=".form-select-lg"
-                name="material"
-                required
-              >
-                <option selected disabled value="">Виберіть матеріал</option>
-                <option value="steel">Сталь</option>
-                <option value="wood">Дерево</option>
-                <option value="plastic">Пластик</option>
-              </select>
-            </label>
-          </div>
-
-          <button type="submit" class="btn btn-primary col-3">Submit</button>
-          <button type="reset" class="btn btn-primary col-3">Reset</button>
-        </form>
-      </div>
-    </div>
-    <div class="alert alert-danger is-hidden" role="alert">
-      A simple primary alert—check it out!
-    </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    <title>Module-9-1</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
-    ></script>
+    />
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <script type="module" src="./index.js"></script>
+  </head>
+  <body
+    class="d-flex justify-content-center align-items-center"
+    style="min-height: 100vh"
+  >
+    <section class="py-5">
+      <div class="container">
+        <div class="list-group mx-auto" style="width: 38rem">
+          <a
+            href="/timer.html"
+            class="list-group-item list-group-item-action py-3"
+            aria-current="true"
+          >
+            <div>
+              <h5 class="mb-1">Таймер</h5>
+            </div>
+            <p class="mb-1">Порахувати час від Дня Народження</p>
+          </a>
+          <a
+            href="/users.html"
+            class="list-group-item list-group-item-action py-3"
+            aria-current="true"
+          >
+            <div>
+              <h5 class="mb-1">Юзери</h5>
+            </div>
+            <p class="mb-1">
+              Порахувати вік юзерів та дізнатись, чи є в них День Народження
+            </p>
+          </a>
+          <a
+            href="/comments.html"
+            class="list-group-item list-group-item-action py-3"
+          >
+            <div>
+              <h5 class="mb-1">Коментарі</h5>
+            </div>
+            <p class="mb-1">Конвертувати дату публікації коментарів</p>
+          </a>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

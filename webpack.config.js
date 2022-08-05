@@ -9,6 +9,18 @@ module.exports = {
       template: path.resolve(__dirname, "./src/index.html"),
       filename: "index.html",
     }),
+    new HTMLWebpackPlugin({
+      template: path.resolve(__dirname, "./src/users.html"),
+      filename: "users.html",
+    }),
+    new HTMLWebpackPlugin({
+      template: path.resolve(__dirname, "./src/timer.html"),
+      filename: "timer.html",
+    }),
+    new HTMLWebpackPlugin({
+      template: path.resolve(__dirname, "./src/comments.html"),
+      filename: "comments.html",
+    }),
   ],
   module: {
     rules: [
