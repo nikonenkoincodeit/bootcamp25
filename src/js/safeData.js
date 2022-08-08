@@ -1,17 +1,26 @@
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../firebaseConfig/firebaseConfig";
-import { getDatabase, ref, set, get, update, push } from "firebase/database";
+import { getDatabase, ref, set, get, remove } from "firebase/database";
 
 initializeApp(firebaseConfig);
 
 const db = getDatabase();
 
 export function addTaskToDb(objForDb) {
-  set(ref(db, "task/" + objForDb.date), objForDb);
+  try {
+    set(ref(db, "task/" + objForDb.date), objForDb);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-export function getTaskFromDb() {
-  return get(ref(db, `task/`))
+export function getTaskFromDb(key = "") {
+  let url = "task/";
+  if (key) {
+    url += key;
+  }
+
+  return get(ref(db, url))
     .then((snapshot) => {
       if (snapshot.exists()) {
         return snapshot.val();
@@ -27,32 +36,20 @@ export function getTaskFromDb() {
 }
 
 export function updateTaskDB(idTask, isChecked) {
-  const updates = { task: { [idTask]: { checked: isChecked } } };
-  console.log(updates);
-
-  update(ref(db), updates);
+  getTaskFromDb(idTask)
+    .then((data) => {
+      data.checked = isChecked;
+      return data;
+    })
+    .then((data) => addTaskToDb(data))
+    .catch((error) => console.log(error));
 }
 
-export const getData = (key) => {
-  // return JSON.parse(localStorage.getItem(key));
-};
-
-export const safeData = (key, data) => {
-  //   let array = [];
-  //   const jsonData = getData(key);
-  //   if (jsonData) {
-  //     array = [...jsonData, data];
-  //   } else {
-  //     array.push(data);
-  //   }
-  //   saveDataLocalStorage(key, array);
-  //   // console.log(jsonData);
-};
-
-export const createDataObject = (value) => {
-  return { value, date: Date.now(), checked: false };
-};
-
-export function saveDataLocalStorage(key, array) {
-  localStorage.setItem(key, JSON.stringify(array));
+export function deleteTask(id) {
+  console.log(id);
+  try {
+    remove(ref(db, "task/" + id));
+  } catch (error) {
+    console.log(error);
+  }
 }
