@@ -9,14 +9,6 @@ module.exports = {
       template: path.resolve(__dirname, "./src/pages/index.html"),
       filename: "index.html",
     }),
-    new HTMLWebpackPlugin({
-      template: path.resolve(__dirname, "./src/pages/user.html"),
-      filename: "user.html",
-    }),
-    new HTMLWebpackPlugin({
-      template: path.resolve(__dirname, "./src/pages/album.html"),
-      filename: "album.html",
-    }),
   ],
   module: {
     rules: [

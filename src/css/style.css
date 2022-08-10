@@ -7,6 +7,20 @@
   gap: 30px;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 .card {
   width: calc(100% / 4 - 30px);
+}
+
+.tile__price_color_red {
+  color: #f84147;
+  font-size: 24px;
+}
+
+.item-btn + .item-btn {
+  margin-left: 15px;
 }
