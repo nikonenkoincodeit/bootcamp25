@@ -21,6 +21,16 @@ ul {
   font-size: 24px;
 }
 
-.item-btn + .item-btn {
-  margin-left: 15px;
+.list-card,
+.list-btn {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.alert {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  max-width: 350px;
+  z-index: 100;
 }
