@@ -60,82 +60,47 @@
                 >
               </li>
             </ul>
-            <form class="d-flex">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+
+            <button
+              class="btn btn-outline-success js-btn-login"
+              type="button"
+              data-id="Sign in"
+            >
+              Sign in
+            </button>
           </div>
         </div>
       </nav>
-      <h1>Hello world!</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas,
-        quibusdam?
-      </p>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <img
-              src="<%=require('./img/img_mountains_wide.jpg')%>"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+
+    <main>
+      <div class="container js-container">
+        <div class="box">
+          <img src="/w3images/bandmember.jpg" alt="Avatar" />
+          <p>Hello. How are you today?</p>
+          <span class="time-right">11:00</span>
         </div>
-        <div class="col">
-          <div class="card">
-            <img
-              src="<%=require('./img/img_mountains_wide.jpg')%>"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+
+        <div class="box darker">
+          <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" />
+          <p>Hey! I'm fine. Thanks for asking!</p>
+          <span class="time-left">11:01</span>
         </div>
-        <div class="col">
-          <div class="card">
-            <img
-              src="<%=require('./img/img_mountains_wide.jpg')%>"
-              class="card-img-top"
-              alt="..."
-              width="200"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+
+        <div class="box">
+          <img src="/w3images/bandmember.jpg" alt="Avatar" />
+          <p>Sweet! So, what do you wanna do today?</p>
+          <span class="time-right">11:02</span>
+        </div>
+
+        <div class="box darker">
+          <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" />
+          <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+          <span class="time-left">11:05</span>
         </div>
       </div>
-    </div>
+    </main>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
