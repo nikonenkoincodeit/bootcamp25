@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
+import { getDatabase, ref, push, onValue } from "firebase/database";
+
 import { firebaseConfig } from "../js/firebase-config";
-import { toggleContent } from "../index";
+import { toggleBtnContent, isChatVisible } from "../index";
 import {
   getAuth,
   signInWithPopup,
@@ -13,6 +15,7 @@ import {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
+const db = getDatabase();
 
 export const signIn = () => {
   signInWithPopup(auth, provider)
@@ -39,18 +42,8 @@ export const signIn = () => {
 };
 
 onAuthStateChanged(auth, (user) => {
-  toggleContent(user);
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    console.log(user);
-    // ...
-  } else {
-    console.log(user);
-    // User is signed out
-    // ...
-  }
+  toggleBtnContent(user);
+  isChatVisible(user);
 });
 
 export function signOutUser() {
@@ -62,3 +55,21 @@ export function signOutUser() {
       // An error happened.
     });
 }
+
+export function addMessage(data) {
+  try {
+    push(ref(db, 'chat/'), data);
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}
+
+export function getUser() {
+  return auth.currentUser;
+}
+
+onValue(ref(db, 'chat/'), (snapshot) => {
+  const data = snapshot.val();
+  console.log(data);
+});
+

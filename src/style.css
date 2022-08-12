@@ -56,3 +56,12 @@ h1 {
   float: left;
   color: #999;
 }
+
+.container.is-hidden {
+  display: none;
+}
+
+.js-chatboxes {
+  max-height: 70vh;
+  overflow-y: auto;
+}
