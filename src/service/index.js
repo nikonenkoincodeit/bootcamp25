@@ -1,51 +1,39 @@
-const BASE_URL = "http://localhost:3000/data/";
+import axios from "axios";
+axios.defaults.baseURL = "http://localhost:3000/data";
+axios.defaults.headers.post["Content-Type"] = "application/json; charset=UTF-8";
 
-export const sendData = (data) => {
-  return fetch(BASE_URL, {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json; charset=UTF-8",
-    },
-  }).then((response) => {
-    if (response.ok) {
-      return response.json();
-    }
-    throw new Error(response.statusText);
-  });
+export const sendData = async (data) => {
+  try {
+    const response = await axios.post("/", data);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
 };
 
-export const getData = () => {
-  return fetch(BASE_URL).then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    throw new Error(res.statusText);
-  });
+export const getData = async () => {
+  try {
+    const res = await axios.get("/");
+    return res.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
 };
 
-export const deleteItem = (id) => {
-  return fetch(BASE_URL + id, {
-    method: "DELETE",
-  }).then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    throw new Error(res.statusText);
-  });
+export const deleteItem = async (id) => {
+  try {
+    const res = await axios.delete("/" + id);
+    return res.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
 };
 
-export const updateTaskDB = (id, checked) => {
-  return fetch(BASE_URL + id, {
-    method: "PATCH",
-    body: JSON.stringify({ checked }),
-    headers: {
-      "Content-Type": "application/json; charset=UTF-8",
-    },
-  }).then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    throw new Error(res.statusText);
-  });
+export const updateTaskDB = async (id, checked) => {
+  try {
+    const res = await axios.patch("/" + id, { checked });
+    return res.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
 };
