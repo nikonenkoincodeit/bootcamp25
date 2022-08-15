@@ -11,11 +11,17 @@ import {
   signOut,
 } from "firebase/auth";
 
+import { getArrayId } from "../utils"
+import { messageMarkup, renderMarkup } from "../markup"
+
+import { refs } from '../refs/refs';
+const { chatBoxes } = refs;
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const db = getDatabase();
+let arrayIdMessage = [];
 
 export const signIn = () => {
   signInWithPopup(auth, provider)
@@ -70,6 +76,9 @@ export function getUser() {
 
 onValue(ref(db, 'chat/'), (snapshot) => {
   const data = snapshot.val();
-  console.log(data);
+  const [value, array] = getArrayId(data, arrayIdMessage);
+  arrayIdMessage = array;
+  const userId = getUser().uid;
+  const markup = messageMarkup(value, userId)
+  renderMarkup(markup, chatBoxes)
 });
-
