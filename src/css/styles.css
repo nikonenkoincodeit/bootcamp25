@@ -1,0 +1,191 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  padding: 1rem 1rem 2rem;
+  font-family: 'Roboto', sans-serif;
+  background: #fff;
+  font-size: 16px;
+
+  /*
+   * CSS image reference example.
+   */
+  /* background-image: url('./images/bg-pattern.png'); */
+}
+
+img,
+video {
+  padding: 10px;
+}
+
+p {
+  margin: 5px;
+}
+
+p.api-name {
+  padding-top: 56px;
+  font-weight: bold;
+}
+
+.container {
+  padding: 20px 0;
+  min-width: 480px;
+}
+
+.logo {
+  padding: 0 10px;
+}
+
+ol {
+  list-style: none;
+}
+
+ol > li {
+  margin-bottom: 200px;
+}
+
+.mdc-btn {
+  min-width: 88px;
+  height: 36px;
+  padding: 0 16px;
+  border: 0;
+  outline: 0;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: #00796b;
+  cursor: pointer;
+  box-shadow: 0 4px 4px 0 rgba(#414141, 0.3);
+  &:hover {
+    background-color: #004c40;
+  }
+  &:active {
+    box-shadow: 0 6px 4px 0 rgba(#414141, 0.3);
+  }
+}
+
+.search-form {
+  display: flex;
+  justify-content: start;
+  padding: 20px;
+  box-shadow: 0 0 2px 2px rgba(#414141, 0.2);
+}
+
+.search-form input {
+  margin-right: 12px;
+  padding: 4px;
+  outline: 0;
+  border: 0;
+  color: #263238;
+  font-size: 18px;
+  background-color: transparent;
+  border-bottom: 2px solid #00796b;
+  &::placeholder {
+    color: #616161;
+  }
+}
+
+.result-1,
+.result-3,
+.result-4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+table.minimalistBlack {
+  margin-top: 20px;
+  border: 3px solid #000000;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+table.minimalistBlack td,
+table.minimalistBlack th {
+  border: 1px solid #000000;
+  padding: 5px 10px;
+}
+
+table.minimalistBlack thead {
+  background: #cfcfcf;
+  background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #cfcfcf 100%);
+  border-bottom: 3px solid #000000;
+}
+
+table.minimalistBlack thead th {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+}
+
+.error {
+  color: red;
+}
+
+/* products */
+
+.product-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-list li {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.product-list li .content {
+  display: flex;
+}
+
+/* weather */
+
+.weather div {
+  margin-left: 40px;
+}
+
+/* movies */
+
+header {
+  display: flex;
+  padding-bottom: 30px;
+}
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movies div.movie-card {
+  width: 240px;
+  padding: 10px;
+}
+
+button,
+[data-load-more] {
+  display: block;
+}
+
+button.is-hidden {
+  display: none;
+}
+
+button.btn-service > .spinner-grow.is-hidden {
+  display: none;
+}
