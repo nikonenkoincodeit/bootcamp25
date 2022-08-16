@@ -76,7 +76,10 @@ export function getUser() {
 
 onValue(ref(db, 'chat/'), (snapshot) => {
   const data = snapshot.val();
+  if (!data) return;
   const [value, array] = getArrayId(data, arrayIdMessage);
+  console.log(array);
+
   arrayIdMessage = array;
   const userId = getUser().uid;
   const markup = messageMarkup(value, userId)

@@ -8,25 +8,26 @@ export function getArrayId(data, arrayMessage = []) {
         return !arrayMessage.includes(item.timeStep);
     })
 
-    console.log("🚀 ~ getArrayId ~ newValue", newValue)
+    for (let el of newValue) {
+        arrayMessage.push(el.timeStep);
+    }
+
     return [newValue, arrayMessage];
 }
 
 export function convertMs(ms) {
-    // Number of milliseconds per unit of time
-    const second = 1000;
-    const minute = second * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
 
-    // Remaining days
-    const days = Math.floor(ms / day);
-    // Remaining hours
-    const hours = Math.floor((ms % day) / hour);
-    // Remaining minutes
-    const minutes = Math.floor(((ms % day) % hour) / minute);
-    // Remaining seconds
-    const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+    const date = new Date(ms);
+
+    let days = date.getDate();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
 
     return { days, hours, minutes, seconds };
+}
+
+
+export function addLeadingZero(value) {
+    return String(value).padStart(2, '0');
 }
