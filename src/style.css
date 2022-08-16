@@ -89,18 +89,23 @@ h1 {
   height: 62px;
 }
 
-.img-wraper.right {
+.img-wraper {
+  position: relative;
+  padding: 20px;
+}
+
+.inner-img-wrap.right {
   justify-content: flex-end;
 }
 
-.img-wraper {
+.inner-img-wrap {
   display: flex;
   position: relative;
 }
 
 .time-photo {
+  right: 15px;
+  display: flex;
   position: absolute;
-  bottom: 0;
-  right: 30px;
-  color: #fff;
+  color: #aaa;
 }

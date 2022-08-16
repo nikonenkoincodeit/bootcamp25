@@ -11,14 +11,16 @@ export function messageMarkup(data, userId) {
     </div > `
         } else if (data.type === "image") {
             console.log(data)
-            return /* html */`<div class="img-wraper ${userId === data.uid ? 'right' : ''}">
+            return /* html */`<div class="img-wraper">
+            <div class="inner-img-wrap ${userId === data.uid ? 'right' : ''}">
             <img
               src="${data.photoURL}"
               alt="image"
               width="200"
               height="200"
             />
-            <span class="time-photo">${addLeadingZero(hours)}:${addLeadingZero(minutes)}</span>
+            </div>
+            <span class="time-photo ${userId === data.uid ? 'right' : ''}">${addLeadingZero(hours)}:${addLeadingZero(minutes)}</span>
           </div>`
         }
     }).join('');
