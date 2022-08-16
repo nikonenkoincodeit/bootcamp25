@@ -8,7 +8,8 @@ export function messageMarkup(data, userId) {
         <img src="${data.photoURL}" alt="Avatar" class="${userId === data.uid ? 'right' : ''}"/>
     <p>${data.message}</p >
     <span class="time-right">${addLeadingZero(hours)}:${addLeadingZero(minutes)}</span>
-    </div > `} else if (data.type === "image") {
+    </div > `
+        } else if (data.type === "image") {
             console.log(data)
             return /* html */`<div class="img-wraper ${userId === data.uid ? 'right' : ''}">
             <img
@@ -29,7 +30,3 @@ export function renderMarkup(markup, element) {
 }
 
 
-// export function messageMarkup(data, userId) {
-//         const { hours, minutes } = convertMs(data.timeStep)
-//         return /* html */ `         `}).join('');
-// }

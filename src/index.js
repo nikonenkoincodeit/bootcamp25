@@ -40,7 +40,7 @@ function getUserInfo(message) {
   }
 }
 
-export function getImgSend(photoUrl) {
+export function getImgSend(photoURL) {
   const { uid } = getUser();
   return {
     type: "image",
