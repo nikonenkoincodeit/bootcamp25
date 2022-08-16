@@ -90,12 +90,11 @@ h1 {
 }
 
 .img-wraper.right {
-  left: 100%;
-  transform: translateX(-100%);
+  justify-content: flex-end;
 }
 
 .img-wraper {
-  display: inline-flex;
+  display: flex;
   position: relative;
 }
 

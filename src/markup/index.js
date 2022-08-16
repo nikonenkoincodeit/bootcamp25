@@ -6,7 +6,7 @@ export function messageMarkup(data, userId) {
         if (data.type === "text") {
             return /* html */ `<div class="box ${userId === data.uid ? 'darker' : ''}">
         <img src="${data.photoURL}" alt="Avatar" class="${userId === data.uid ? 'right' : ''}"/>
-    <p>${data.message}</p >
+    <p>${data.message}</p>
     <span class="time-right">${addLeadingZero(hours)}:${addLeadingZero(minutes)}</span>
     </div > `
         } else if (data.type === "image") {
@@ -22,7 +22,6 @@ export function messageMarkup(data, userId) {
           </div>`
         }
     }).join('');
-
 }
 
 export function renderMarkup(markup, element) {
