@@ -9,6 +9,7 @@ export function messageMarkup(data, userId) {
     <p>${data.message}</p >
     <span class="time-right">${addLeadingZero(hours)}:${addLeadingZero(minutes)}</span>
     </div > `} else if (data.type === "image") {
+            console.log(data)
             return /* html */`<div class="img-wraper ${userId === data.uid ? 'right' : ''}">
             <img
               src="${data.photoURL}"

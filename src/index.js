@@ -44,7 +44,7 @@ export function getImgSend(photoUrl) {
   const { uid } = getUser();
   return {
     type: "image",
-    photoUrl,
+    photoURL,
     uid,
     timeStep: Date.now(),
   }
