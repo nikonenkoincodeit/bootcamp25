@@ -1,8 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import { refs } from "./refs/refs";
-import { signIn, signOutUser, addMessage, getUser } from "./service/firebase";
-console.log("11111 :>> ", 11111);
+import { signIn, signOutUser, addMessage, getUser, loadFile } from "./service/firebase";
 
 //TODO callback buttonLogin click
 refs.buttonLogin.addEventListener("click", onLoginClick);
@@ -33,8 +32,19 @@ function onFormMessageSubmit(e) {
 function getUserInfo(message) {
   const { photoURL, uid } = getUser();
   return {
+    type: "text",
     message,
     photoURL,
+    uid,
+    timeStep: Date.now(),
+  }
+}
+
+export function getImgSend(photoUrl) {
+  const { uid } = getUser();
+  return {
+    type: "image",
+    photoUrl,
     uid,
     timeStep: Date.now(),
   }
@@ -57,4 +67,10 @@ export function isChatVisible(data) {
 }
 
 
+//TODO callback on iput file select
+function onSelectFilesChange(e) {
+  loadFile(e.target.files[0]);
+  // console.log(e.target.files[0]);
+}
 
+refs.selectFiles.addEventListener('change', onSelectFilesChange)

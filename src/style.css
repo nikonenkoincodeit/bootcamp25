@@ -62,6 +62,46 @@ h1 {
 }
 
 .js-chatboxes {
+  margin: 20px auto;
+  border: 1px solid teal;
+  border-radius: 5px;
+  padding: 5px;
   max-height: 70vh;
+  min-height: 50vh;
   overflow-y: auto;
+}
+
+.js-file-input {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  margin: -1px;
+}
+
+.js-label-input {
+  display: flex;
+  background-color: teal;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  width: 62px;
+  height: 62px;
+}
+
+.img-wraper.right {
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.img-wraper {
+  display: inline-flex;
+  position: relative;
+}
+
+.time-photo {
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+  color: #fff;
 }
